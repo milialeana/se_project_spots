@@ -16,7 +16,7 @@ Project is responsive to the windows width or device it is being viewed on. Page
 
 This webpage is deployed to GitHub Pages
 
--Deployment Link:
+-Deployment Link: https://milialeana.github.io/se_project_spots/
 
 **Figma**
 
@@ -24,6 +24,10 @@ This webpage is deployed to GitHub Pages
 
 **Images**
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
+![Avatar](images/avatar.jpg)
 
-Good luck and have fun!
+![Desktop_Screen](images/Desktop%20Screen%20View.png)
+
+![Tablet_Screen](images/Tablet%20Screen%20View.png)
+
+![Phone_Screen](images/Phone%20Screen%20View.png)

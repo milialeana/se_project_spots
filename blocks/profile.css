@@ -34,10 +34,15 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
+  opacity: 70%;
   background: none;
   border: none;
   margin-right: auto;
   padding: 10px;
+}
+
+.profile__edit-btn:hover {
+  opacity: 100%;
 }
 
 .profile__add-btn {
@@ -47,6 +52,7 @@
   margin-top: auto;
   background: #212121;
   color: white;
+  border: none;
   border-radius: 8px;
   padding: 10px 15px;
   font-size: 16px;
@@ -56,6 +62,10 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
+}
+
+.profile__add-btn:hover {
+  opacity: 80%;
 }
 
 @media screen and (max-width: 627px) {
@@ -68,7 +78,7 @@
   }
 
   .profile__avatar {
-    margin-right: 0 0 12px;
+    margin-right: 12px;
     height: 80px;
     width: 80px;
   }
