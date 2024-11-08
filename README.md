@@ -16,7 +16,7 @@ Project is responsive to the windows width or device it is being viewed on. Page
 
 This webpage is deployed to GitHub Pages
 
--Deployment Link: https://milialeana.github.io/se_project_spots/
+[Deployment Link](https://milialeana.github.io/se_project_spots/)
 
 **Figma**
 
