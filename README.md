@@ -12,12 +12,6 @@ Project is responsive to the windows width or device it is being viewed on. Page
 -CSS
 -Responsive Design
 
-## Deployment
-
-This webpage is deployed to GitHub Pages
-
-[Deployment Link](https://milialeana.github.io/se_project_spots/)
-
 **Figma**
 
 - [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
@@ -31,3 +25,13 @@ This webpage is deployed to GitHub Pages
 ![Tablet_Screen](images/Tablet%20Screen%20View.png)
 
 ![Phone_Screen](images/Phone%20Screen%20View.png)
+
+## Deployment
+
+This webpage is deployed to GitHub Pages
+
+[Deployment Link](https://milialeana.github.io/se_project_spots/)
+
+## Video on project
+
+[Video Link](https://www.loom.com/share/c6e1ef40551b4f49b1b4cce4219512ed?sid=be663bb7-a102-434f-8550-2b87844ac478)
