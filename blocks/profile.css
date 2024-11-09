@@ -1,7 +1,7 @@
 .profile {
   display: flex;
   padding: 34px 0 20px;
-  border-bottom: 1px #212121 solid;
+  border-bottom: 1px #21212166 solid;
 }
 
 .profile__avatar {
@@ -9,6 +9,13 @@
   border-radius: 10px;
   height: 190px;
   width: 190px;
+  overflow: hidden;
+}
+
+.profile__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .profile__column {
@@ -21,6 +28,12 @@
   font-size: 32px;
   line-height: 32px;
   margin: 0 0 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px; /*if I have this incorrect are you able to link me a way to discover the max width*/
 }
 
 .profile__description {
@@ -37,12 +50,13 @@
   opacity: 70%;
   background: none;
   border: none;
-  margin-right: auto;
-  padding: 10px;
+  margin-top: auto;
+  margin-right: auto; /*Figma may have been redsigned, it shows up right under civil aviator for me*/
 }
 
 .profile__edit-btn:hover {
   opacity: 100%;
+  cursor: pointer;
 }
 
 .profile__add-btn {
@@ -66,6 +80,7 @@
 
 .profile__add-btn:hover {
   opacity: 80%;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {
@@ -78,7 +93,7 @@
   }
 
   .profile__avatar {
-    margin-right: 12px;
+    margin: 0;
     height: 80px;
     width: 80px;
   }
@@ -90,8 +105,6 @@
 
   .profile__description {
     margin: 0 0 32px;
-    text-overflow: ellipsis;
-    overflow: hidden;
   }
 
   .profile__column {
