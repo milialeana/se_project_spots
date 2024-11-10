@@ -41,6 +41,12 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 350px;
 }
 
 .profile__edit-btn {
