@@ -22,7 +22,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 413px;
+  max-width: 350px;
 }
 
 .card__like-btn {
@@ -46,7 +46,8 @@
 
   .card__title {
     font-size: 16px;
-    line-height: 16px;
+    line-height: 1.2px;
+    max-width: 250px;
   }
 
   .card__like-btn {

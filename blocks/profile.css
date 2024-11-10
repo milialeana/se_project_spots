@@ -33,7 +33,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  max-width: 420px; /*if I have this incorrect are you able to link me a way to discover the max width*/
+  max-width: 350px;
 }
 
 .profile__description {
@@ -51,7 +51,8 @@
   background: none;
   border: none;
   margin-top: auto;
-  margin-right: auto; /*Figma may have been redsigned, it shows up right under civil aviator for me*/
+  margin-right: auto;
+  padding: 0;
 }
 
 .profile__edit-btn:hover {
@@ -93,13 +94,14 @@
   }
 
   .profile__avatar {
-    margin: 0;
+    margin: 0 0 12px 0;
     height: 80px;
     width: 80px;
   }
 
   .profile__name {
     font-size: 20px;
+    line-height: 20px;
     margin: 0 0 6px;
   }
 
