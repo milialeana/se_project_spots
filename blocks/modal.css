@@ -12,7 +12,6 @@
   justify-content: center;
   visibility: hidden;
   padding: 0 20px;
-
 }
 
 .modal_opened {
@@ -118,4 +117,5 @@
 
   .modal__input::placeholder {
     font-size: 16px;
+  }
 }
