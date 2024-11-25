@@ -18,7 +18,7 @@
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 1.4;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -45,12 +45,13 @@
   }
 
   .card__title {
+    margin: 0;
     font-size: 16px;
-    line-height: 1.2;
-    max-width: 250px;
+    line-height: 1.5;
+    max-width: calc(100% - 40px);
   }
 
-  .card__like-btn {
-    height: 18px;
+  .card__content {
+    justify-content: space-between;
   }
 }
