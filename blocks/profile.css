@@ -24,6 +24,7 @@
 }
 
 .profile__name {
+  padding: 5px 10px;
   font-weight: 500;
   font-size: 32px;
   line-height: 32px;
@@ -37,6 +38,7 @@
 }
 
 .profile__description {
+  padding: 10px;
   margin: 0;
   font-weight: 500;
   font-size: 16px;
@@ -66,7 +68,7 @@
   cursor: pointer;
 }
 
-.profile__add-btn {
+.profile__new-post-btn {
   width: 149px;
   height: 52px;
   margin-left: auto;
@@ -85,7 +87,7 @@
   gap: 5px;
 }
 
-.profile__add-btn:hover {
+.profile__new-post-btn:hover {
   opacity: 80%;
   cursor: pointer;
 }
@@ -119,7 +121,7 @@
     margin: 0 0 20px;
   }
 
-  .profile__add-btn {
+  .profile__new-post-btn {
     margin: 0;
     width: 288px;
     height: 52px;

@@ -29,7 +29,7 @@
               <img src="./images/pencil.svg" alt="pencil" />Edit Profile
             </button>
           </div>
-          <button type="button" class="profile__add-btn">
+          <button type="button" class="profile__new-post-btn">
             <img src="./images/plus.svg" alt="Plus icon" />New Post
           </button>
         </section>
@@ -38,6 +38,11 @@
             <template id="card-template">
               <li class="card">
                 <img alt="Card image" class="card__image" />
+                <button
+                  type="button"
+                  aria-label="Delete card"
+                  class="card__delete-btn"
+                ></button>
                 <div class="card__content">
                   <h2 class="card__title"></h2>
                   <button
@@ -55,23 +60,23 @@
         <p class="footer__copyright">2023 &copy; Spots</p>
       </footer>
       <div class="modal" id="edit-modal">
-        <div class="modal__container">
-          <button type="button" class="modal__close-btn" aria-label="Close">
-            <img
-              src="./images/exit.svg"
-              alt="close button"
-              class="modal__close-icon"
-            />
-          </button>
+        <div class="modal__content">
+          <button
+            type="button"
+            class="modal__close"
+            aria-label="Close modal"
+          ></button>
           <h2 class="modal__title">Edit profile</h2>
-          <form name="edit-profile" class="modal__form">
+          <form class="modal__form" id="edit-profile-form">
             <label for="profile-name-input" class="modal__label">
               Name
               <input
                 id="profile-name-input"
                 type="text"
                 class="modal__input"
+                name="name"
                 placeholder="Type your name"
+                autocomplete="name"
             /></label>
             <label for="profile-description-input" class="modal__label">
               Description
@@ -80,11 +85,59 @@
                 type="text"
                 class="modal__input"
                 placeholder="Describe yourself"
+                name="description"
+                autocomplete="organization-title"
               />
             </label>
-            <button type="submit" class="modal__submit-btn">Save</button>
+            <button type="submit" class="modal__button">Save</button>
           </form>
         </div>
+      </div>
+      <div class="modal" id="add-card-modal">
+        <div class="modal__content">
+          <button
+            aria-label="Close modal"
+            class="modal__close"
+            type="button"
+          ></button>
+          <h2 class="modal__title">New post</h2>
+          <form class="modal__form" id="add-card-form">
+            <label class="modal__label" for="add-card-link-input">
+              Image link
+              <input
+                id="add-card-link-input"
+                class="modal__input"
+                name="link"
+                placeholder="Paste a link to the picture"
+                type="url"
+                autocomplete="url"
+            /></label>
+            <label class="modal__label" for="add-card-name-input">
+              Caption
+              <input
+                id="add-card-name-input"
+                type="text"
+                class="modal__input"
+                name="name"
+                placeholder="Type your caption"
+                autocomplete="off"
+              />
+            </label>
+            <button type="submit" class="modal__button">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="preview-modal">
+      <div class="modal__content modal__content_type_preview">
+        <button
+          aria-label="Close modal"
+          class="modal__close modal__close_type_preview"
+          type="button"
+        ></button>
+        <img class="modal__image" src="" alt="" />
+        <p class="modal__caption"></p>
       </div>
     </div>
     <script defer src="./scripts/index.js"></script>
