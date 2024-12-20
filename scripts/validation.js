@@ -9,34 +9,30 @@ const settings = {
 
 const showInputError = (formEl, inputEl, errorMsg, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
-  if (!errorMsgEl) {
-    console.warn(`Error message element for input "${inputEl.id}" not found.`);
-    return;
-  }
   errorMsgEl.textContent = errorMsg;
   inputEl.classList.add(config.inputErrorClass);
 };
 
 const hideInputError = (formEl, inputEl, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
-  if (!errorMsgEl) {
-    console.warn(`Error message element for input "${inputEl.id}" not found.`);
-    return;
-  }
   errorMsgEl.textContent = "";
   inputEl.classList.remove(config.inputErrorClass);
 };
 
 const hasInvalidInput = (inputList) => {
-  return inputList.some((input) => !input.validity.valid);
+  return inputList.some((input) => {
+    return !input.validity.valid;
+  });
 };
 
 const disableButton = (buttonEl, config) => {
+  if (!buttonEl.matches(settings.submitButtonSelector)) return;
   buttonEl.disabled = true;
   buttonEl.classList.add(config.inactiveButtonClass);
 };
 
 const toggleButtonState = (inputList, buttonEl, config) => {
+  if (!buttonEl.matches(settings.submitButtonSelector)) return;
   if (hasInvalidInput(inputList)) {
     disableButton(buttonEl, config);
   } else {
@@ -54,6 +50,7 @@ const checkInputValidity = (formEl, inputEl, config) => {
 };
 
 const resetValidation = (formEl, inputList, config) => {
+  if (!formEl.matches(settings.formSelector)) return;
   inputList.forEach((input) => {
     hideInputError(formEl, input, config);
   });

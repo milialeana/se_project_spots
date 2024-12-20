@@ -84,7 +84,6 @@
   line-height: 1;
   padding: 16px 12px 16px;
   margin: 8px 0 0;
-  color: #212121b2;
 }
 
 .modal__input_type_error {
@@ -167,16 +166,17 @@
   border: none;
   border-radius: 8px;
   background: #212121;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 
 .modal__button:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background: #212121cc;
   cursor: pointer;
 }
 
 .modal__button_disabled {
-  background: rgba(0, 0, 0, 0.8);
+  background: #212121;
+  opacity: 50%;
   cursor: pointer;
 }
 
