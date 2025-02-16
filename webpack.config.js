@@ -59,13 +59,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       templateParameters: {},
+      favicon: path.resolve(__dirname, "src/images/favicon.ico"),
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         { from: "src/vendor/fonts", to: "fonts" },
-        { from: "src/images/favicon.ico", to: "" },
         { from: "src/images", to: "images" },
       ],
     }),

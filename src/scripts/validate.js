@@ -41,15 +41,26 @@ const enableButton = (buttonEl, config) => {
 };
 
 const checkInputValidity = (formEl, inputEl, config) => {
-  inputEl.validity.valid
-    ? hideInputError(formEl, inputEl, config)
-    : showInputError(formEl, inputEl, inputEl.validationMessage, config);
+  if (inputEl.type === "url" && !isValidURL(inputEl.value)) {
+    showInputError(formEl, inputEl, "Please enter a valid URL.", config);
+  } else if (!inputEl.validity.valid) {
+    showInputError(formEl, inputEl, inputEl.validationMessage, config);
+  } else {
+    hideInputError(formEl, inputEl, config);
+  }
+};
+
+const isValidURL = (url) => {
+  const pattern = /^(https?:\/\/)?([\w\d-]+\.)+[\w\d]{2,}(\/.*)?$/;
+  return pattern.test(url);
 };
 
 const resetValidation = (formEl, config) => {
   if (!formEl.matches(config.formSelector)) return;
   const inputList = [...formEl.querySelectorAll(config.inputSelector)];
+
   inputList.forEach((input) => hideInputError(formEl, input, config));
+
   toggleButtonState(
     inputList,
     formEl.querySelector(config.submitButtonSelector),
@@ -62,6 +73,7 @@ const setEventListeners = (formEl, config) => {
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
 
   toggleButtonState(inputList, buttonElement, config);
+
   inputList.forEach((inputElement) =>
     inputElement.addEventListener("input", () => {
       checkInputValidity(formEl, inputElement, config);
