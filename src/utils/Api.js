@@ -4,58 +4,56 @@ class Api {
     this._headers = headers;
   }
 
+  _request(endpoint, options = {}) {
+    return fetch(`${this._baseUrl}${endpoint}`, {
+      headers: this._headers,
+      ...options,
+    }).then(this._handleResponse);
+  }
+
   _handleResponse(res) {
     return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   }
 
   getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, { headers: this._headers }).then(
-      this._handleResponse
-    );
+    return this._request("/cards");
   }
 
   getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, { headers: this._headers }).then(
-      this._handleResponse
-    );
+    return this._request("/users/me");
   }
 
   editUserInfo({ name, about }) {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return this._request("/users/me", {
       method: "PATCH",
-      headers: this._headers,
       body: JSON.stringify({ name, about }),
-    }).then(this._handleResponse);
+    });
   }
 
   updateAvatar(avatar) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
+    return this._request("/users/me/avatar", {
       method: "PATCH",
-      headers: this._headers,
       body: JSON.stringify(avatar),
-    }).then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)));
+    });
   }
 
   addCard({ name, link }) {
-    return fetch(`${this._baseUrl}/cards`, {
+    return this._request("/cards", {
       method: "POST",
-      headers: this._headers,
       body: JSON.stringify({ name, link }),
-    }).then(this._handleResponse);
+    });
   }
 
   deleteCard(id) {
-    return fetch(`${this._baseUrl}/cards/${id}`, {
+    return this._request(`/cards/${id}`, {
       method: "DELETE",
-      headers: this._headers,
-    }).then(this._handleResponse);
+    });
   }
 
   changeLikeStatus(id, isLiked) {
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+    return this._request(`/cards/${id}/likes`, {
       method: isLiked ? "DELETE" : "PUT",
-      headers: this._headers,
-    }).then(this._handleResponse);
+    });
   }
 
   getAppInfo() {
