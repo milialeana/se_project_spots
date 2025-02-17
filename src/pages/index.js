@@ -57,6 +57,8 @@ const inputs = {
 const modals = {
   delete: document.querySelector("#delete-modal"),
   preview: document.querySelector("#preview-modal"),
+  previewImage: document.querySelector(".modal__image"),
+  previewCaption: document.querySelector(".modal__caption"),
 };
 
 const elements = {
@@ -99,7 +101,12 @@ document
   );
 
 // Submit handlers
-function handleSubmit(apiMethod, evt, loadingText = "Saving...") {
+function handleSubmit(
+  apiMethod,
+  evt,
+  loadingText = "Saving...",
+  shouldResetForm = true
+) {
   evt.preventDefault();
   const submitButton = evt.submitter;
   const initialText = submitButton.textContent;
@@ -107,7 +114,9 @@ function handleSubmit(apiMethod, evt, loadingText = "Saving...") {
   renderLoading(true, submitButton, initialText, loadingText);
 
   apiMethod()
-    .then(() => evt.target.reset())
+    .then(() => {
+      if (shouldResetForm) evt.target.reset();
+    })
     .catch(console.error)
     .finally(() => renderLoading(false, submitButton, initialText));
 }
@@ -172,7 +181,8 @@ function handleDeleteSubmit(evt) {
         closeModal(modals.delete);
       }),
     evt,
-    "Deleting..."
+    "Deleting...",
+    false
   );
 }
 
@@ -218,19 +228,34 @@ function getCardElement(data) {
     handleDeleteCard(cardElement, data._id)
   );
 
+  cardImageEl.addEventListener("click", () => openImageModal(data));
+
   return cardElement;
+}
+// Preview image
+function openImageModal(data) {
+  modals.previewImage.src = data.link;
+  modals.previewImage.alt = data.name || "Preview Image";
+  modals.previewCaption.textContent = data.name;
+
+  openModal(modals.preview);
 }
 
 // El to modals and forms
-function setupModal(button, form, reset = false) {
+function setupModal(button, form, reset = false, prefill = null) {
   button.addEventListener("click", () => {
     if (reset) form.reset();
-    resetValidation(form, validationConfig);
+    if (prefill) prefill();
+
     openModal(form.closest(".modal"));
   });
 }
 
-setupModal(profileElements.editBtn, forms.editProfile);
+setupModal(profileElements.editBtn, forms.editProfile, false, () => {
+  inputs.name.value = profileElements.name.textContent;
+  inputs.description.value = profileElements.description.textContent;
+  resetValidation(forms.editProfile, validationConfig);
+});
 setupModal(profileElements.newPostBtn, forms.addCard, true);
 setupModal(profileElements.avatarBtn, forms.editAvatar, true);
 
